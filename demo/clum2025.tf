@@ -173,9 +173,9 @@ resource "openstack_compute_volume_attach_v2" "volume_attachment" {
 resource "openstack_networking_floatingip_v2" "floating_ip" {
   pool = var.floatingip_pool
 
-  lifecycle {
-    prevent_destroy = true
-  }
+  # lifecycle {
+  #   prevent_destroy = true
+  # }
 }
 
 # Attach our floating IP to the instance
@@ -183,9 +183,9 @@ resource "openstack_networking_floatingip_associate_v2" "float_ip_assoc" {
   floating_ip = openstack_networking_floatingip_v2.floating_ip.address
   port_id     = openstack_networking_port_v2.clum-demo-port.id
 
-  lifecycle {
-    prevent_destroy = true
-  }
+  # lifecycle {
+  #   prevent_destroy = true
+  # }
 }
 
 
